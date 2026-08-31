@@ -68,5 +68,16 @@
     primaryUser = user.name;
   };
 
+  system.defaults = {
+    dock = {
+      autohide = true;
+    };
+
+    finder = {
+      ShowPathbar = true;
+      ShowStatusBar = true;
+    };
+  };
+
   users.users.${user.name}.home = user.home;
 }
