@@ -10,6 +10,12 @@
       package = null; # Git LFS is already provided system-wide by environment.systemPackages.
     };
 
+    ignores = [
+      "*~"
+      "*.swp"
+      ".DS_Store"
+    ];
+
     settings = {
       diff.algorithm = "histogram";
       init.defaultBranch = "main";
