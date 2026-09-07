@@ -69,6 +69,10 @@
   };
 
   system.defaults = {
+    controlcenter = {
+      BatteryShowPercentage = true;
+    };
+
     dock = {
       autohide = true;
       tilesize = 48;
