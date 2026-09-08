@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./modules/cli.nix
     ./modules/dev.nix
     ./modules/fonts.nix
     ./modules/git.nix
