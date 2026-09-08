@@ -4,5 +4,6 @@
   home.packages = with pkgs; [
     android-tools
     ffmpeg
+    imagemagick
   ];
 }
