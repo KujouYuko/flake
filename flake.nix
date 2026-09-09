@@ -2,16 +2,17 @@
   description = "Yuko's Nix config";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-26.05-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-26.05-darwin";
 
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
   };
 
@@ -20,6 +21,7 @@
       self,
       home-manager,
       nixpkgs,
+      nixpkgs-darwin,
       nix-darwin,
       ...
     }:
@@ -29,7 +31,14 @@
         "aarch64-darwin"
       ];
 
-      forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
+      pkgsFor =
+        system:
+        if nixpkgs.lib.hasSuffix "-darwin" system then
+          nixpkgs-darwin.legacyPackages.${system}
+        else
+          nixpkgs.legacyPackages.${system};
+
+      forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f (pkgsFor system));
     in
     {
       darwinConfigurations.default = nix-darwin.lib.darwinSystem {
@@ -40,7 +49,6 @@
             name = "hh2333";
             home = "/Users/hh2333";
           };
-
         };
 
         modules = [
