@@ -6,8 +6,6 @@
     ./modules/dev.nix
     ./modules/fonts.nix
     ./modules/git.nix
-    ./modules/java.nix
-    ./modules/python.nix
     ./modules/shell.nix
     ./modules/tools.nix
   ];
