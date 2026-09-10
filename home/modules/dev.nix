@@ -8,6 +8,5 @@
     nixfmt
     protobuf
     rustup
-    uv
   ];
 }
