@@ -3,6 +3,7 @@
 {
   imports = [
     ./dev/java.nix
+    ./dev/node.nix
     ./dev/python.nix
   ];
 
