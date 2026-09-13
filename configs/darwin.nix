@@ -7,7 +7,7 @@
 
 {
   imports = [
-    ../modules/pkgs.nix
+    ../modules/system-packages.nix
   ];
 
   # Nix-Darwin replaces path_helper, so retain only core macOS integration
