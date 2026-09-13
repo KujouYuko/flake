@@ -31,10 +31,6 @@
       ];
     };
 
-    # Keep legacy NIX_PATH reproducible without exposing Flake inputs to the
-    # system module; pkgs.path is the nixpkgs source selected for this host.
-    variables.NIX_PATH = "nixpkgs=${pkgs.path}";
-
     # Preserve macOS Cryptex and Apple tool paths after Nix-Darwin disables
     # path_helper; keep each directory as a separate PATH list element.
     systemPath = lib.mkOrder 1150 [
