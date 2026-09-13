@@ -5,14 +5,12 @@ let
     ln -s ${runtime}/bin/${executable} "$out/bin/${executable}"
   '';
 
-  linkAll = runtime: executables: pkgs.lib.concatMapStrings (link runtime) executables;
-
   # CPython packages expose overlapping unversioned executables. Keep 3.14 as
   # the default and expose only version-specific interfaces for other builds.
   pythonRuntimes = pkgs.runCommand "python-runtimes" { } ''
     mkdir -p "$out/bin"
 
-    ${linkAll pkgs.python314 [
+    ${pkgs.lib.concatMapStrings (link pkgs.python314) [
       "python"
       "python-config"
 
@@ -23,7 +21,7 @@ let
       "python3.14-config"
     ]}
 
-    ${linkAll pkgs.python314FreeThreading [
+    ${pkgs.lib.concatMapStrings (link pkgs.python314FreeThreading) [
       "python3.14t"
       "python3.14t-config"
     ]}
