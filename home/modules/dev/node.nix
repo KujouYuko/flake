@@ -19,7 +19,7 @@ in
     sessionVariables = {
       NPM_CONFIG_PREFIX = "${npmRoot}";
       NPM_CONFIG_CACHE = "${config.xdg.cacheHome}/npm";
-      NPM_CONFIG_USERCONFIG = "${npmRoot}/rc";
+      NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/rc";
 
       # macOS config and registry/auth remain in ~/Library/Preferences/pnpm.
       PNPM_HOME = "${pnpmRoot}";
