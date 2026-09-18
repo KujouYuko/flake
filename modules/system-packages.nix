@@ -7,6 +7,7 @@
     git-lfs
     just
     gnupg
+    gnused
     ripgrep
     tree
     wget
