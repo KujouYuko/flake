@@ -7,6 +7,5 @@
     nixd
     nixfmt
     protobuf
-    rustup
   ];
 }
