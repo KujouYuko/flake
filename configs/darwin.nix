@@ -6,6 +6,12 @@
 }:
 
 {
+  nixpkgs.overlays = [
+    (final: _prev: {
+      mole-cleaner = final.callPackage ../pkgs/mole-cleaner.nix { };
+    })
+  ];
+
   imports = [
     ../modules/system-packages.nix
   ];

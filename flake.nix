@@ -60,6 +60,7 @@
       # This configuration is specific to the Apple Silicon Mac. Keep these
       # outputs Darwin-only, while allowing platform-independent outputs below.
       packages.aarch64-darwin.default = self.darwinConfigurations.default.system;
+      packages.aarch64-darwin.mole-cleaner = self.darwinConfigurations.default.pkgs.mole-cleaner;
 
       apps.aarch64-darwin.darwin-rebuild = {
         type = "app";

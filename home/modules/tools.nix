@@ -5,5 +5,6 @@
     android-tools
     ffmpeg
     imagemagick
+    mole-cleaner
   ];
 }
