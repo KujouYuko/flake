@@ -6,9 +6,9 @@ default:
 update:
     nix flake update --flake .
 
-# Evaluate every declared platform without building checks.
+# Evaluate and build checks for every declared platform.
 check:
-    nix flake check --no-build --all-systems
+    nix flake check --all-systems
 
 # Build and activate the Darwin configuration.
 build-darwin:
