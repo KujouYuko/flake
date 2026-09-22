@@ -65,6 +65,14 @@
   };
 
   system.defaults = {
+    CustomUserPreferences = {
+      "com.apple.desktopservices" = {
+        # Prevent .DS_Store on removable and network volumes.
+        DSDontWriteNetworkStores = true;
+        DSDontWriteUSBStores = true;
+      };
+    };
+
     controlcenter = {
       BatteryShowPercentage = true;
     };
