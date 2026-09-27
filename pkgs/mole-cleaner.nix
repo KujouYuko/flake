@@ -8,17 +8,17 @@
 }:
 
 let
-  version = "1.55.0";
+  version = "1.56.0";
 
   src = fetchurl {
     url = "https://github.com/tw93/Mole/archive/refs/tags/V${version}.tar.gz";
-    hash = "sha256-pxroLE6ZuBd8d+L4GrMABc8QDNFCojUfdsid6oD9AcI=";
+    hash = "sha256-rb2kVNaBENsWaeSyEfYOZTP+TzIIq/M/6O2RsPFLjOY=";
     name = "Mole-${version}.tar.gz";
   };
 
   binaries = fetchurl {
     url = "https://github.com/tw93/Mole/releases/download/V${version}/binaries-darwin-arm64.tar.gz";
-    hash = "sha256-uWNAT3mZMYiFqGwNTUq1UCvV41zHR36qW4ZZlAIHZCE=";
+    hash = "sha256-o1f+0mMF4A5z2dzoenvU7bFnl/86iPSiaQDfeL81vjg=";
     name = "mole-binaries-darwin-arm64-${version}.tar.gz";
   };
 in
