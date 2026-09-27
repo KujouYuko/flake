@@ -13,6 +13,11 @@
       zstyle ':completion:*' matcher-list \
         'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
         'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+
+      # Enable Mole completion on macOS.
+      if [[ "$(uname -s)" == "Darwin" ]]; then
+        eval "$(mo completion zsh)"
+      fi
     '';
   };
 }
