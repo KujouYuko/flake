@@ -1,5 +1,15 @@
-{ config, user, ... }:
+{
+  config,
+  lib,
+  user,
+  ...
+}:
 
+let
+  timeMachineExclusions = [
+    config.xdg.cacheHome
+  ];
+in
 {
   imports = [
     ./modules/cli.nix
@@ -17,4 +27,12 @@
     homeDirectory = user.home;
     stateVersion = "26.05";
   };
+
+  # Exclude regenerable user data from Time Machine backups.
+  home.activation.excludeFromTimeMachine = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    for path in ${lib.escapeShellArgs timeMachineExclusions}; do
+      mkdir -p "$path"
+      /usr/bin/tmutil addexclusion "$path"
+    done
+  '';
 }
