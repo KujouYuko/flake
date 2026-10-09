@@ -61,12 +61,7 @@
       # outputs Darwin-only, while allowing platform-independent outputs below.
       packages.aarch64-darwin.default = self.darwinConfigurations.default.system;
       packages.aarch64-darwin.mole-cleaner = self.darwinConfigurations.default.pkgs.mole-cleaner;
-
-      apps.aarch64-darwin.darwin-rebuild = {
-        type = "app";
-        program = "${nix-darwin.packages.aarch64-darwin.darwin-rebuild}/bin/darwin-rebuild";
-        meta.description = "Run the nix-darwin rebuild tool pinned by flake.lock";
-      };
+      packages.aarch64-darwin.darwin-rebuild = nix-darwin.packages.aarch64-darwin.darwin-rebuild;
 
       # Keep `nix fmt` available on every declared development platform.
       formatter = forAllSystems (pkgs: pkgs.nixfmt-tree);
