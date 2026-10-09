@@ -1,5 +1,6 @@
 {
   lib,
+  mole,
   pkgs,
   user,
   ...
@@ -8,7 +9,7 @@
 {
   nixpkgs.overlays = [
     (final: _prev: {
-      mole-cleaner = final.callPackage ../pkgs/mole-cleaner.nix { };
+      mole-cleaner = mole.packages.${final.stdenv.hostPlatform.system}.mole;
     })
   ];
 

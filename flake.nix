@@ -14,12 +14,18 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mole = {
+      url = "github:tw93/Mole/main";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
+    };
   };
 
   outputs =
     {
       self,
       home-manager,
+      mole,
       nixpkgs,
       nixpkgs-darwin,
       nix-darwin,
@@ -45,6 +51,8 @@
         system = "aarch64-darwin";
 
         specialArgs = {
+          inherit mole;
+
           user = {
             name = "hh2333";
             home = "/Users/hh2333";
@@ -60,7 +68,6 @@
       # This configuration is specific to the Apple Silicon Mac. Keep these
       # outputs Darwin-only, while allowing platform-independent outputs below.
       packages.aarch64-darwin.default = self.darwinConfigurations.default.system;
-      packages.aarch64-darwin.mole-cleaner = self.darwinConfigurations.default.pkgs.mole-cleaner;
       packages.aarch64-darwin.darwin-rebuild = nix-darwin.packages.aarch64-darwin.darwin-rebuild;
 
       # Keep `nix fmt` available on every declared development platform.
