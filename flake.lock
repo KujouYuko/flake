@@ -28,11 +28,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791509191,
-        "narHash": "sha256-DyoPdIFGnRNDyMqFy2jUG8N2mhEgkgSgBfnMZH7mAiE=",
+        "lastModified": 1791724612,
+        "narHash": "sha256-wEMkquQ1wrpjmjVTEqczN/kvy/l5iqiwMtGgHqKw5nY=",
         "owner": "tw93",
         "repo": "Mole",
-        "rev": "2e8ea7f3aa8c20517e3597cc437bec1030e8401b",
+        "rev": "49475f1d5cf82243530ef64c0d64da2cbfcebecd",
         "type": "github"
       },
       "original": {

@@ -8,9 +8,7 @@
 
 {
   nixpkgs.overlays = [
-    (final: _prev: {
-      mole-cleaner = mole.packages.${final.stdenv.hostPlatform.system}.mole;
-    })
+    mole.overlays.default
   ];
 
   imports = [
