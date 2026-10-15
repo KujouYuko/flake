@@ -5,6 +5,7 @@
     fd
     git
     git-lfs
+    htop
     just
     gnupg
     gnused
