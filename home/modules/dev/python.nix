@@ -10,6 +10,11 @@ let
   pythonRuntimes = pkgs.runCommand "python-runtimes" { } ''
     mkdir -p "$out/bin"
 
+    ${pkgs.lib.concatMapStrings (link pkgs.python312) [
+      "python3.12"
+      "python3.12-config"
+    ]}
+
     ${pkgs.lib.concatMapStrings (link pkgs.python314) [
       "python"
       "python-config"
