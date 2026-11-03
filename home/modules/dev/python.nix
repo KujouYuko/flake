@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   link = runtime: executable: ''
@@ -50,6 +50,13 @@ in
     packages = [
       pkgs.uv
       pythonRuntimes
+
+      (lib.hiPrio (
+        pkgs.writeShellScriptBin "pip3" ''
+          echo "Error: pip3 is disabled. Please use uv instead." >&2
+          exit 127
+        ''
+      ))
     ];
   };
 }
